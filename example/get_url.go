@@ -39,9 +39,9 @@ func main() {
 		"ship_postcode": "1212",
 		"ship_country":  "Bangladesh",
 		"desc":          "some university",
-		"success_url":   "http://<your_domain>/success.php",
-		"fail_url":      "http://<your_domain>/fail.php",
-		"cancel_url":    "http://<your_domain>/cancel.php",
+		"success_url":   "<your_success_url>",
+		"fail_url":      "<your_fail_url>",
+		"cancel_url":    "<your_cancel_url>",
 		"opt_a":         "Reshad", "opt_b": "Akil",
 		"opt_c": "Liza", "opt_d": "Sohel",
 	}
