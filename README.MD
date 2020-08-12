@@ -72,7 +72,7 @@ func main() {
 	}
 
 	//Generating url for post request
-	response, err := aamarpay.Payment.GeneratePostUrl(params, true)
+	response, err := aamarpay.Payment.GeneratePostUrl(params, true) // Here in second param use true for sandbox account and false for live account.
 	if err != nil {
 		panic(err)
 	}
