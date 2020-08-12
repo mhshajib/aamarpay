@@ -82,7 +82,7 @@ func main() {
 }
 ```
 
-You'll get response as map
+You'll get response as string
 
 
 ### **License**
