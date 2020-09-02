@@ -21,8 +21,10 @@ func generateUrlString(params map[string]string) string {
 func (a *AamarpayConnection) GeneratePostUrl(params map[string]string, sandbox bool) (string, error) {
 	var result string
 	requestUrl := "http://secure.aamarpay.com/request.php"
+	paymentUrl := "http://secure.aamarpay.com"
 	if sandbox {
 		requestUrl = "https://sandbox.aamarpay.com/request.php"
+		paymentUrl = "https://sandbox.aamarpay.com"
 	}
 
 	//Initializing Curl
@@ -43,7 +45,7 @@ func (a *AamarpayConnection) GeneratePostUrl(params map[string]string, sandbox b
 	makeCall := func (buf []byte, data interface{}) bool {
 		respUrl := strings.ReplaceAll(string(buf), "\"", "")
 		respUrl = strings.ReplaceAll(respUrl, "\\", "")
-		result = requestUrl+respUrl
+		result = paymentUrl+respUrl
 		return true
 	}
 
