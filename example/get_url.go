@@ -1,7 +1,7 @@
 package main
 
 import (
-"fmt"
+	"fmt"
 	"math/rand"
 	"strconv"
 	"time"
@@ -9,14 +9,17 @@ import (
 	"github.com/mhshajib/aamarpay"
 )
 
+
 func main() {
 	//Setting Aamarpay Interface
 	aamarpay.Payment = &aamarpay.AamarpayConnection{}
+	//Initializing Payment
+	aamarpay.Payment.Init(true)
 
 	tran_id := strconv.Itoa(rand.New(rand.NewSource(time.Now().UnixNano())).Int())
 	params := map[string]string{
-		"store_id": "<your_store_id>",
-		"signature_key": "<your_signature_key>",
+		"store_id": "aamarpay",
+		"signature_key": "28c78bb1f45112f5d40b956fe104645a",
 		"amount":        "200",
 		"payment_type":  "VISA",
 		"currency":      "BDT",
@@ -39,15 +42,19 @@ func main() {
 		"ship_postcode": "1212",
 		"ship_country":  "Bangladesh",
 		"desc":          "some university",
-		"success_url":   "<your_success_url>",
-		"fail_url":      "<your_fail_url>",
-		"cancel_url":    "<your_cancel_url>",
-		"opt_a":         "Reshad", "opt_b": "Akil",
-		"opt_c": "Liza", "opt_d": "Sohel",
+		"success_url":   "http://mhsajib.com/testSuccess",
+		"fail_url":      "http://mhsajib.com/testFail",
+		"cancel_url":    "<http://mhsajib.com/testCancel",
+		"opt_a":         "Reshad",
+		"opt_b": "Akil",
+		"opt_c": "Liza",
+		"opt_d": "Sohel",
 	}
+	//Setting Data For Payment
+	aamarpay.Payment.SetData(params)
 
 	//Generating url for post request
-	response, err := aamarpay.Payment.GeneratePostUrl(params, true)
+	response, err := aamarpay.Payment.GeneratePostUrl()
 	if err != nil {
 		panic(err)
 	}

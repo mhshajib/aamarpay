@@ -2,7 +2,9 @@ package aamarpay
 
 //Interface of Aamarpay Payment Gateway
 type IPayment interface {
-	GeneratePostUrl(params map[string]string, sandbox bool) (string, error)
+	Init(sandbox bool)
+	SetData(params map[string]string)
+	GeneratePostUrl() (string, error)
 }
 
 //use this variable to access the implementation of this interface
