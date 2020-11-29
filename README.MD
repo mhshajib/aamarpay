@@ -39,7 +39,7 @@ func main() {
 	//Setting Aamarpay Interface
 	aamarpay.Payment = &aamarpay.AamarpayConnection{}
 	//Initializing Payment
-	aamarpay.Payment.Init(true)
+	aamarpay.Payment.Init(true) //true for sandbox and false for live.
 
 	tran_id := strconv.Itoa(rand.New(rand.NewSource(time.Now().UnixNano())).Int())
 	params := map[string]string{

@@ -9,16 +9,15 @@ import (
 	"github.com/mhshajib/aamarpay"
 )
 
-
 func main() {
 	//Setting Aamarpay Interface
 	aamarpay.Payment = &aamarpay.AamarpayConnection{}
 	//Initializing Payment
-	aamarpay.Payment.Init(true)
+	aamarpay.Payment.Init(true) //true for sandbox and false for live.
 
 	tran_id := strconv.Itoa(rand.New(rand.NewSource(time.Now().UnixNano())).Int())
 	params := map[string]string{
-		"store_id": "aamarpay",
+		"store_id":      "aamarpay",
 		"signature_key": "28c78bb1f45112f5d40b956fe104645a",
 		"amount":        "200",
 		"payment_type":  "VISA",
@@ -46,9 +45,9 @@ func main() {
 		"fail_url":      "http://mhsajib.com/testFail",
 		"cancel_url":    "<http://mhsajib.com/testCancel",
 		"opt_a":         "Reshad",
-		"opt_b": "Akil",
-		"opt_c": "Liza",
-		"opt_d": "Sohel",
+		"opt_b":         "Akil",
+		"opt_c":         "Liza",
+		"opt_d":         "Sohel",
 	}
 	//Setting Data For Payment
 	aamarpay.Payment.SetData(params)
@@ -62,4 +61,3 @@ func main() {
 	//Url Generated Successfully. Printing url.
 	fmt.Println(response)
 }
-
