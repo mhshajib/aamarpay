@@ -78,8 +78,8 @@ func main() {
 	//Setting Data For Payment
 	aamarpay.Payment.SetData(params)
 
-	//Generating url for post request
-	response, err := aamarpay.Payment.GeneratePostUrl()
+	//Generating url for payment request
+	response, err := aamarpay.Payment.GeneratePaymentUrl()
 	if err != nil {
 		panic(err)
 	}

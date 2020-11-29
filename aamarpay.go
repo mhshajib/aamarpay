@@ -119,40 +119,40 @@ func (a *AamarpayConnection) SetData(params map[string]string) {
 	}
 }
 
-//Generating Post Url
-func (a *AamarpayConnection) GeneratePostUrl() (string, error) {
+//Generating Payment Url
+func (a *AamarpayConnection) GeneratePaymentUrl() (string, error) {
 	data := url.Values{
-		"store_id": {a.StoreId},
+		"store_id":      {a.StoreId},
 		"signature_key": {a.SignatureKey},
-		"amount": {a.Amount},
-		"payment_type": {a.PaymentType},
-		"currency": {a.Currency},
-		"tran_id": {a.TranId},
-		"cus_name": {a.CusName},
-		"cus_email": {a.CusEmail},
-		"cus_add1": {a.CusAdd1},
-		"cus_add2": {a.CusAdd2},
-		"cus_city": {a.CusCity},
-		"cus_state": {a.CusState},
-		"cus_postcode": {a.CusPostcode},
-		"cus_country": {a.CusCountry},
-		"cus_phone": {a.CusPhone},
-		"cus_fax": {a.CusFax},
-		"ship_name": {a.ShipName},
-		"ship_add1": {a.ShipAdd1},
-		"ship_add2": {a.ShipAdd2},
-		"ship_city": {a.ShipCity},
-		"ship_state": {a.ShipState},
+		"amount":        {a.Amount},
+		"payment_type":  {a.PaymentType},
+		"currency":      {a.Currency},
+		"tran_id":       {a.TranId},
+		"cus_name":      {a.CusName},
+		"cus_email":     {a.CusEmail},
+		"cus_add1":      {a.CusAdd1},
+		"cus_add2":      {a.CusAdd2},
+		"cus_city":      {a.CusCity},
+		"cus_state":     {a.CusState},
+		"cus_postcode":  {a.CusPostcode},
+		"cus_country":   {a.CusCountry},
+		"cus_phone":     {a.CusPhone},
+		"cus_fax":       {a.CusFax},
+		"ship_name":     {a.ShipName},
+		"ship_add1":     {a.ShipAdd1},
+		"ship_add2":     {a.ShipAdd2},
+		"ship_city":     {a.ShipCity},
+		"ship_state":    {a.ShipState},
 		"ship_postcode": {a.ShipPostcode},
-		"ship_country": {a.ShipCountry},
-		"desc": {a.Desc},
-		"success_url": {a.SuccessUrl},
-		"fail_url": {a.FailUrl},
-		"cancel_url": {a.CancelUrl},
-		"opt_a": {a.OptA},
-		"opt_b": {a.OptB},
-		"opt_c": {a.OptC},
-		"opt_d": {a.OptD},
+		"ship_country":  {a.ShipCountry},
+		"desc":          {a.Desc},
+		"success_url":   {a.SuccessUrl},
+		"fail_url":      {a.FailUrl},
+		"cancel_url":    {a.CancelUrl},
+		"opt_a":         {a.OptA},
+		"opt_b":         {a.OptB},
+		"opt_c":         {a.OptC},
+		"opt_d":         {a.OptD},
 	}
 
 	var transResponse string = ""
@@ -185,4 +185,3 @@ func (a *AamarpayConnection) GeneratePostUrl() (string, error) {
 	//Returning final response
 	return fmt.Sprintf("%s%s", a.AamarpayPaymentUrl, transResponse), nil
 }
-
